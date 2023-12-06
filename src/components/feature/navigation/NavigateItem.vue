@@ -6,7 +6,7 @@
   >
     <a :href="href" @click="navigate"
       :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active', 
-      'cursor-pointer rounded-3xl py-3 px-6 hover:bg-primary-border text-primary-text font-[300]']"
+      'cursor-pointer rounded-3xl py-2 px-5 hover:bg-primary-border text-primary-text font-[300]']"
     >
       {{ value }}
     </a>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-3">
+  <div class="flex gap-2 md:gap-3">
     <NavigateItem value="Work" path="/"/>
     <NavigateItem value="About" path="/about"/>
     <NavigateItem value="Journal" path="/journal"/>
