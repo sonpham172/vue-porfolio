@@ -8,59 +8,23 @@
       value="We design and build brands and products for startups and scaleups in fintech, health tech, edtech, AI, VR and blockchain." />
     </div>
 
-    <div class="container grid grid-cols-2 gap-10">
-      <BasicCard 
-        v-for="item in LIST_CARD_DATA" 
-        :key="item.id" 
-        :title="item.title" 
-        :description="item.description" 
-        :image="item.image" 
-      />
-    </div>
+    <HotProjectSection />
+
+    <BasicButton value="All Project" />
+
+    <LineDown />
+
+    <FeedbackLeader />
   </div>
 </template>
 
 <script setup lang="ts">
-import BasicText from '@/components/feature/text/BasicText.vue';
-import BasicCard from '@/components/feature/card/BasicCard.vue';
+import BasicText from '@/components/shared/text/BasicText.vue';
+import HotProjectSection from '@/components/feature/section/HotProjectSection.vue';
+import BasicButton from '@/components/shared/button/BasicButton.vue';
+import LineDown from '@/components/shared/LineDown.vue';
+import FeedbackLeader from '@/components/feature/section/FeedbackLeader.vue';
 
-const LIST_CARD_DATA = [
-  {
-    id: 1,
-    image: 'umnai',
-    path: 'umnai',
-    title: 'Umnai',
-    description: 'AI for humans'
-  },
-  {
-    id: 2,
-    image: 'increment',
-    path: 'increment',
-    title: 'Increment',
-    description: 'Plus is for progress'
-  },
-  {
-    id: 3,
-    image: 'brand',
-    path: 'brand',
-    title: 'Paytrix',
-    description: 'Curating financial solutions'
-  },
-  {
-    id: 4,
-    image: 'business',
-    path: 'business',
-    title: 'Vioside',
-    description: 'Evolve to simplicity'
-  }, 
-  {
-    id: 5,
-    image: 'law',
-    path: 'law',
-    title: 'Vaia',
-    description: 'Personalised legal services'
-  }
-];
 </script>
 
 <style>

@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-  import BasicText from "../text/BasicText.vue";
-
+import BasicText from '@/components/shared/text/BasicText.vue';
+  
   defineProps<{
     image: string;
     title: string;
