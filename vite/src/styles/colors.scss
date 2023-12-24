@@ -1,0 +1,95 @@
+@use "sass:color";
+@use "sass:math";
+@import "./text-contrast";
+
+/* auto contrast color */
+$text-white: #FFFFFF;
+$text-black: #0e0e14;
+$colors: (
+  /* THEME COLORS - maybe different for light theme */
+        "brand": #FFAE11,
+        "primary": #C5AC79,
+        "secondary": #79C5AC,
+        "tertiary": #AC79C5,
+  /* BACKGROUND COLORS - different for light theme */
+        "background1": #181A20,
+        "background2": #1F2129,
+        "background3": #2E3442,
+        "background4": #1B202B,
+  /* NAMED COLORS - normally same for both light & dark theme */
+        "red": #CD1F49,
+        "green": #84cc16,
+        "blue": #3b82f6,
+        "yellow": #eab308,
+        "gray": #23252A,
+
+  /* STATE COLORS */
+        "hover": #5EC6C7,
+);
+
+$colors-light: (
+  /* THEME COLORS - maybe different for light theme */
+  /* BACKGROUND COLORS - different for light theme */
+        "background1": #F9F9F9,
+        "background2": #FFFFFF,
+        "background3": #F2F2F2,
+        "background4": #FFFFFF,
+);
+
+
+/*DO NOT CHANGE below*/
+:root {
+  --text: #{$text-white};
+
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+    --#{$name}-text: #{text-contrast($color)};
+    --#{$name}-gray: #{grayscale($color)};
+    --#{$name}-100: #{lighten($color, 40%)};
+    --#{$name}-200: #{lighten($color, 30%)};
+    --#{$name}-300: #{lighten($color, 20%)};
+    --#{$name}-400: #{lighten($color, 10%)};
+    --#{$name}-500: #{$color};
+    --#{$name}-600: #{darken($color, 10%)};
+    --#{$name}-700: #{darken($color, 20%)};
+    --#{$name}-800: #{darken($color, 30%)};
+    --#{$name}-900: #{darken($color, 40%)};
+    --#{$name}-100-text: #{text-contrast(lighten($color, 40%))};
+    --#{$name}-200-text: #{text-contrast(lighten($color, 30%))};
+    --#{$name}-300-text: #{text-contrast(lighten($color, 20%))};
+    --#{$name}-400-text: #{text-contrast(lighten($color, 10%))};
+    --#{$name}-500-text: #{text-contrast($color)};
+    --#{$name}-600-text: #{text-contrast(darken($color, 10%))};
+    --#{$name}-700-text: #{text-contrast(darken($color, 20%))};
+    --#{$name}-800-text: #{text-contrast(darken($color, 30%))};
+    --#{$name}-900-text: #{text-contrast(darken($color, 40%))};
+  }
+}
+
+[data-theme="light"] {
+  --text: #{$text-black};
+
+  @each $name, $color in $colors-light {
+    --#{$name}: #{$color};
+    --#{$name}-text: #{text-contrast($color)};
+    --#{$name}-gray: #{grayscale($color)};
+    --#{$name}-100: #{lighten($color, 40%)};
+    --#{$name}-200: #{lighten($color, 30%)};
+    --#{$name}-300: #{lighten($color, 20%)};
+    --#{$name}-400: #{lighten($color, 10%)};
+    --#{$name}-500: #{$color};
+    --#{$name}-600: #{darken($color, 10%)};
+    --#{$name}-700: #{darken($color, 20%)};
+    --#{$name}-800: #{darken($color, 30%)};
+    --#{$name}-900: #{darken($color, 40%)};
+    --#{$name}-100-text: #{text-contrast(lighten($color, 40%))};
+    --#{$name}-200-text: #{text-contrast(lighten($color, 30%))};
+    --#{$name}-300-text: #{text-contrast(lighten($color, 20%))};
+    --#{$name}-400-text: #{text-contrast(lighten($color, 10%))};
+    --#{$name}-500-text: #{text-contrast($color)};
+    --#{$name}-600-text: #{text-contrast(darken($color, 10%))};
+    --#{$name}-700-text: #{text-contrast(darken($color, 20%))};
+    --#{$name}-800-text: #{text-contrast(darken($color, 30%))};
+    --#{$name}-900-text: #{text-contrast(darken($color, 40%))};
+  }
+}

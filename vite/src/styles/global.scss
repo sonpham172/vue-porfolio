@@ -1,0 +1,18 @@
+$dark-background: #0e0e14;
+$dark-text: white;
+
+$light-background: #F9F9F9;
+$light-text: black;
+
+
+$pre-background: #c2c2c2;
+$pre-text: black;
+
+
+:global(input) {
+  color: black
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}

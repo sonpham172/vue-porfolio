@@ -23,12 +23,6 @@
       </div>
 
       <div>
-        <my-card
-          card_title="Red Person"
-          card_desc=" Lorem ipsum dolor sit, amet consectetur.."
-          card_img="https://bit.ly/34B3zHX"
-        >
-        </my-card>
         <canvas-arrow />
       </div>
     </div>
