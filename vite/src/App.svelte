@@ -11,8 +11,8 @@
 
 <Router primary={false}>
   <main class="">
-    <Arrow />
-
+    <Arrow direction="left"/>
+    <!-- <Arrow direction="right"/> -->
   </main>
 
 
