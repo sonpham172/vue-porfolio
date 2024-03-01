@@ -10,7 +10,7 @@
     width: 100%;
     height: 1px;
     border: none;
-    margin: 16px;
+    margin: 16px 0;
     background: var(--dark-mode-secondary-text);
   }
 </style>

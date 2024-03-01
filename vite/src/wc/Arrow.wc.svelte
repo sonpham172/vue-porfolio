@@ -1,15 +1,29 @@
-<svelte:options tag="canvas-arrow" />
+<svelte:options tag="canvas-arrow"/>
 <script lang="ts">
   import type { CanvasType } from "components/Canvas";
   import Canvas from "components/Canvas.svelte";
 
-  export let direction: 'left' | 'right' = 'left';
+  type DirectionElementType = {
+    arrow: {
+      x: number,
+      toX: number
+    },
+    circle: {
+      x: number
+    }
+  }
+  
+  export let direction;
+  export let styleElement = "";
+  export let disabled;
 
   let canvas: CanvasType;
   const initialRadius = 20;
   let radius = initialRadius;
   let animationFrame;
   let zoomStatus: 'IN' | 'OUT' | 'DONE';
+  let coorElement: DirectionElementType;
+
 
   function handleMouseHover() { 
     if(!canvas) {
@@ -23,13 +37,12 @@
   function drawCircle() {
     const {ctx, width, height} = canvas;
     ctx.beginPath();
-    ctx.arc(45, 30, radius, 0, 2*Math.PI);
+    ctx.arc(coorElement.circle.x, 30, radius, 0, 2*Math.PI);
     ctx.stroke();
   }
 
   function animationArrowCircle() {
     const {ctx} = canvas;
-    console.log('radius', radius, zoomStatus);
     if(zoomStatus === 'DONE') {
       cancelAnimationFrame(animationFrame);
       return;
@@ -47,7 +60,7 @@
     }
 
     ctx.clearRect(0, 0, 70, 55);
-    drawArrow(0, 30, 50, 30);
+    drawArrow(coorElement.arrow.x, 30, coorElement.arrow.toX, 30);
     drawCircle();
     animationFrame = requestAnimationFrame(animationArrowCircle);
   }
@@ -68,16 +81,42 @@
   }
 
   $: {
-    if(canvas) {
+    if(canvas && direction) {
       drawCircle();
-      drawArrow(0, 30, 50, 30);
+      drawArrow(coorElement.arrow.x, 30, coorElement.arrow.toX, 30);
     }
+  }
+
+  $: {
+    if(direction) {
+      coorElement = {
+      arrow: {
+        x: direction === 'left' ? 0 : 65,
+        toX: direction === 'left' ? 50 : 15
+      },
+      circle: {
+        x: direction === 'left' ? 45 : 20,
+      }
+      };
+    }
+  }
+
+  function handleclick() {
+    console.log('posted');
+    
+    window.postMessage({
+      source: 'arrow',
+      message: 'clicked',
+      data: direction
+    });
   }
 </script>
 
-<div class="hover:cursor-pointer">
-  <Canvas width={70} height={55} bind:value={canvas} on:hover={handleMouseHover} />
-</div>
+<Canvas width={70} height={55} bind:value={canvas}
+  on:hover={handleMouseHover} on:click={handleclick}
+  disabled={disabled ? JSON.parse(disabled) : false}
+  styleElement={styleElement}
+/>
 
 <style>
   button {

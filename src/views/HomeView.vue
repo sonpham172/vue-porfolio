@@ -11,7 +11,9 @@
     <HotProjectSection />
 
     <BasicButton value="All Project" />
+    <LineDown />
 
+    <TrustedCompany />
     <LineDown />
 
     <FeedbackLeader />
@@ -24,14 +26,19 @@ import HotProjectSection from '@/components/feature/section/HotProjectSection.vu
 import BasicButton from '@/components/shared/button/BasicButton.vue';
 import LineDown from '@/components/shared/LineDown.vue';
 import FeedbackLeader from '@/components/feature/section/FeedbackLeader.vue';
+import TrustedCompany from '@/components/feature/section/TrustedCompany.vue';
 
 </script>
 
 <style>
 .home-container {
   display: flex;
-  margin: 160px 0;
+  margin: 40px 0;
   flex-direction: column;
   gap: 32px;
+
+  @media (min-width: 768px) {
+    margin: 160px 0;
+  }
 }
 </style>

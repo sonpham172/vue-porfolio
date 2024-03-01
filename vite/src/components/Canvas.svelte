@@ -5,9 +5,16 @@
   export let width=500;
   export let height=500;
   export let value: null | CanvasType = null;
+  export let styleElement: string;
+  export let disabled;
 
   let canvas: HTMLCanvasElement | undefined;
   const dispatch = createEventDispatcher();
+
+  $: {
+    console.log('disabled', disabled);
+    
+  }
 
   $: {
     if(canvas) {
@@ -24,17 +31,28 @@
 
 <div class="canvas-wrapper">
   <canvas 
+    style={`${styleElement || ''}`}
+    data-disabled={disabled}
+    class="canvas"
     width={width} 
     height={height} 
-    id='root-canvas' 
+    id={'root-canvas'}
     bind:this={canvas}
     on:mouseover={(e) => {
-      console.log('hover---');
-      
       dispatch('hover');
+    }}
+    on:click={e => {
+      dispatch('click');
     }}
   ></canvas>
 </div>
 
-<style>
+<style lang="scss">
+  .canvas {
+    cursor: pointer;
+  }
+  :global([data-disabled="true"]) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 </style>

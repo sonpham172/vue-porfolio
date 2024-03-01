@@ -1,83 +1,78 @@
 
 <template>
-  <div class="container grid grid-cols-1 gap-10">
-    <div
-      v-for="item in LIST_FEEDBACK_DATA"
-      :key="item.id"
-      class="flex gap-8 flex-col"
-    >
-      <div>{{ item.comment }}</div>
+  <div class="container grid grid-cols-2 md:grid-cols-4 gap-4 items-center" data-aos="fade-up" data-aos-duration="1000">
+    <canvas-arrow
+      class="flex justify-center row-start-1"
+      direction="right" 
+      :disabled="[selectedItem?.id === LIST_FEEDBACK_DATA[0].id]" 
+    />
+    <ul class="container grid row-start-2 md:row-start-1 col-span-2 gap-10 items">
+      <li v-for="(item, index) in LIST_FEEDBACK_DATA" :key="item.id"
+        :class="['flex gap-8 flex-col item', (selectedItem && selectedItem.id === item.id) && 'active']">
+        <div class="text-[24px] font-[fantasy]">{{ item.comment }}</div>
 
-      <div class="flex w-full">
-        <img src="/icons/quote.svg" alt="quote-feedback-logo"/>
-        <LineDown />
-        <a class="flex-[0_0_auto]">Detail Feedback</a>
-      </div>
-
-      <div class="flex gap-8 items-center">
-        <img class="rounded-[4rem]" :src="`/logo-feedback/${item.image}.webp`" alt="feedback-logo"/>
-        <div class="flex flex-col gap-2">
-          <span class="uppercase">{{ item.name }}</span>
-          <BasicText class-name="items-start text-[var(--dark-mode-secondary-text)]" :value=item.rank />
+        <div class="flex w-full">
+          <img src="/icons/quote.svg" alt="quote-feedback-logo" />
+          <LineDown />
+          <a class="flex-[0_0_auto]">Detail Feedback</a>
         </div>
-      </div>
 
-      <div>
-        <canvas-arrow />
-      </div>
-    </div>
+        <div class="flex gap-8 items-center">
+          <img class="rounded-[4rem]" :src="`/logo-feedback/${item.image}.webp`" alt="feedback-logo" />
+          <div class="flex flex-col gap-2">
+            <span class="uppercase">{{ item.name }}</span>
+            <BasicText class-name="items-start text-[var(--dark-mode-secondary-text)]" :value=item.rank />
+          </div>
+        </div>
+      </li>
+    </ul>
+    <canvas-arrow direction="left" class="flex justify-center"
+        :disabled="[selectedItem?.id === LIST_FEEDBACK_DATA[LIST_FEEDBACK_DATA.length - 1].id]" />
   </div>
 </template>
 
 <script setup lang="ts">
-import  LineDown from "@/components/shared/LineDown.vue";
-import FeedbackLeaderType from "../../../types/Feedback";
+import LineDown from "@/components/shared/LineDown.vue";
+import { LIST_FEEDBACK_DATA } from './items';
 import BasicText from "@/components/shared/text/BasicText.vue";
+import { onMounted, ref } from "vue";
+import type FeedbackLeaderType from "@/types/Feedback";
 
-const LIST_FEEDBACK_DATA: FeedbackLeaderType[] = [
-  {
-    id: 1,
-    image: 'tim-bolot',
-    path: 'umnai',
-    name: 'Mai Huynh Tan',
-    rank: 'Team Leader TA GCS VietName',
-    comment: "They were incredibly good at transforming abstract and inevitably still unhardened ideas into a crisp design — the branding as well as the UX — which made it all far more real, first to us founders, and soon after to everyone else."
-  },
-  // {
-  //   id: 2,
-  //   image: 'increment',
-  //   path: 'increment',
-  //   name: 'Ha Quang Chanh',
-  //   rank: 'Senior Software Engineer',
-  //   comment: 'The new brand was delivered seamlessly and was received extremely favourably by our clients and our investors, who have seen many rebranding exercises.'
-  // },
-  // {
-  //   id: 3,
-  //   image: 'brand',
-  //   path: 'brand',
-  //   name: 'Nguyen Ngoc Nguyen',
-  //   rank: 'Team Leader KAP FPT Software',
-  //   comment: '',
-  // },
-  // {
-  //   id: 4,
-  //   image: 'business',
-  //   path: 'business',
-  //   name: 'Nguyen Bao Ngoc',
-  //   rank: 'Technical Architect FAAS GeoTech Hub VN',
-  //   comment: '',
-  // }, 
-  // {
-  //   id: 5,
-  //   image: 'law',
-  //   path: 'law',
-  //   name: 'Le Nguyen Huynh Nhan',
-  //   rank: 'Team Leader Fortune 1Bit Soft',
-  //   comment: ''
-  // }
-];
+const selectedItem = ref<FeedbackLeaderType | null>(LIST_FEEDBACK_DATA[0]);
+
+function clickArrowButton(direction: string) {
+  const idxSelectItem = LIST_FEEDBACK_DATA.findIndex(item => selectedItem.value && item.id === selectedItem.value.id);
+  if (idxSelectItem === -1) {
+    selectedItem.value = null;
+  }
+  const idxNextSelectedItem = direction === 'left' ? idxSelectItem + 1 : idxSelectItem - 1;
+  selectedItem.value = LIST_FEEDBACK_DATA[idxNextSelectedItem];
+}
+
+onMounted(() => {
+  window.addEventListener('message', (event) => {
+    if (event.data) {
+      if (event.data.source === 'arrow') {
+        clickArrowButton(event.data.data);
+      }
+    }
+  })
+});
 </script>
 
-<style>
+<style lang="scss">
+.items {
+  position: relative;
+  height: 392px;
 
+  & .item {
+    position: absolute;
+    opacity: 0;
+    transition: all .3s;
+  }
+
+  & .item.active {
+    opacity: 1;
+  }
+}
 </style>
