@@ -9,14 +9,10 @@
   <script type="module" src="/src/wc/Arrow.wc.svelte"></script>
 </svelte:head>
 
-<Router primary={false}>
-  <main class="">
-    <Arrow direction="left"/>
-    <!-- <Arrow direction="right"/> -->
-  </main>
-
-
-</Router>
+<main class="">
+  <Arrow direction="left" disabled={true}/>
+  <Arrow direction="right" disabled={false}/>
+</main>
 
 <style lang="scss">
   @use "src/styles/global.scss";
@@ -41,5 +37,10 @@
     padding: 8px;
     font-size: 12px;
     margin-top: 16px;
+  }
+
+  :global([data-disabled="true"]) {
+    opacity: 0.5;
+    pointer-events: none;
   }
 </style>

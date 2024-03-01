@@ -4,7 +4,7 @@ import SiteNavigation from './components/feature/navigation/SiteNavigation.vue';
 </script>
 
 <template>
-  <SiteNavigation />
+  <!-- <SiteNavigation /> -->
 
   <RouterView />
 </template>
