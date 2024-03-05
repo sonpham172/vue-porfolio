@@ -1,6 +1,9 @@
 name: Check tsc and test on PR
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   tsc:

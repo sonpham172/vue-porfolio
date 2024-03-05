@@ -7,7 +7,15 @@ on:
       - main
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      IS_PR: ${{github.event_name == 'push' && github.event.head_commit.committer.name == 'GitHub'}}
+    steps:
+      - run: echo "Check if push is a PR"
+      
   deploy:
+    needs: [ check ]
     name: Deploy to EC2 on master branch push
     runs-on: ubuntu-latest
 
@@ -35,4 +43,4 @@ jobs:
             sudo systemctl start apache2
             sudo systemctl enable apache2
             cd home
-            sudo mv * /var/www/html
+            sudo mv -r * /var/www/html
