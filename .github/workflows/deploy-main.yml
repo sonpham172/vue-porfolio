@@ -13,9 +13,10 @@ jobs:
       IS_PR: ${{github.event_name == 'push' && github.event.head_commit.committer.name == 'GitHub'}}
     steps:
       - run: echo "Check if push is a PR"
-      
+
   deploy:
     needs: [ check ]
+    if: ${{needs.check.outputs.IS_PR == 'true'}}
     name: Deploy to EC2 on master branch push
     runs-on: ubuntu-latest
 
