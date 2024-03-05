@@ -29,7 +29,7 @@ export const LIST_FEEDBACK_DATA: FeedbackLeaderType[] = [
     id: 4,
     image: 'baongoc',
     path: 'business',
-    name: 'Nguyen Bao Ngoc',
+    name: 'Pham Bao Ngoc',
     rank: 'Technical Architect FAAS GeoTech Hub VN',
     comment: 'Hangar designed all our brand assets, our branding guidelines, and our website, which they also implemented. I think the result speaks for itself: it is clearly professional-grade, elevating our image and routinely earning us praise',
   }, 
