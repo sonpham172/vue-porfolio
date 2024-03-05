@@ -1,12 +1,12 @@
 
 <template>
-  <div class="container grid grid-cols-2 md:grid-cols-4 gap-4 items-center" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container grid grid-cols-2 lg:grid-cols-4 gap-4 items-center" data-aos="fade-up" data-aos-duration="1000">
     <canvas-arrow
       class="flex justify-center row-start-1"
       direction="right" 
       :disabled="[selectedItem?.id === LIST_FEEDBACK_DATA[0].id]" 
     />
-    <ul class="container grid row-start-2 md:row-start-1 col-span-2 gap-10 items">
+    <ul class="flex flex-col row-start-2 lg:row-start-1 col-span-2 gap-10 items">
       <li v-for="(item, index) in LIST_FEEDBACK_DATA" :key="item.id"
         :class="['flex gap-8 flex-col item', (selectedItem && selectedItem.id === item.id) && 'active']">
         <div class="text-[24px] font-[fantasy]">{{ item.comment }}</div>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="flex gap-8 items-center">
-          <img class="rounded-[4rem]" :src="`/logo-feedback/${item.image}.webp`" alt="feedback-logo" />
+          <img class="rounded-[4rem] w-[18%]" :src="`/logo-feedback/${item.image}.webp`" alt="feedback-logo" />
           <div class="flex flex-col gap-2">
             <span class="uppercase">{{ item.name }}</span>
             <BasicText class-name="items-start text-[var(--dark-mode-secondary-text)]" :value=item.rank />
@@ -63,7 +63,8 @@ onMounted(() => {
 <style lang="scss">
 .items {
   position: relative;
-  height: 392px;
+  height: 460px;
+  overflow: hidden;
 
   & .item {
     position: absolute;

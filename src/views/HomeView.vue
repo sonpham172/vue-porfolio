@@ -17,6 +17,9 @@
     <LineDown />
 
     <FeedbackLeader />
+    <LineDown />
+
+    <MyJournal />
   </div>
 </template>
 
@@ -27,6 +30,7 @@ import BasicButton from '@/components/shared/button/BasicButton.vue';
 import LineDown from '@/components/shared/LineDown.vue';
 import FeedbackLeader from '@/components/feature/section/FeedbackLeader.vue';
 import TrustedCompany from '@/components/feature/section/TrustedCompany.vue';
+import MyJournal from '@/components/feature/section/MyJournal.vue';
 
 </script>
 
