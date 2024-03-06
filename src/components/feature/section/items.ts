@@ -6,7 +6,7 @@ export const LIST_FEEDBACK_DATA: FeedbackLeaderType[] = [
     image: 'tim-bolot',
     path: 'umnai',
     name: 'Tim Bolot',
-    rank: 'Level 1',
+    rank: 'Level 1 awdwadaw',
     comment: "They were incredibly good at transforming abstract and inevitably still unhardened ideas into a crisp design — the branding as well as the UX — which made it all far more real, first to us founders, and soon after to everyone else."
   },
   {
