@@ -40,5 +40,13 @@ export const LIST_FEEDBACK_DATA: FeedbackLeaderType[] = [
     name: 'Mi chel',
     rank: 'level 3',
     comment: 'Hangar is very efficient and the level of service that it provides is flawless. Deliverables are always right on schedule and any changes or adjustments that are required are almost instantly taken care of'
+  },
+  {
+    id: 6,
+    image: 'minh son',
+    path: 'law',
+    name: 'Minh Son',
+    rank: 'level 4',
+    comment: 'Hangar is very efficient and the level of service that it provides is flawless. Deliverables are always right on schedule and any changes or adjustments that are required are almost instantly taken care of'
   }
 ];
