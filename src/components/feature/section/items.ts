@@ -37,7 +37,7 @@ export const LIST_FEEDBACK_DATA: FeedbackLeaderType[] = [
     id: 5,
     image: 'huynhnhan',
     path: 'law',
-    name: 'Mi chel',
+    name: 'Mi chel I am update hedaer',
     rank: 'level 3',
     comment: 'Hangar is very efficient and the level of service that it provides is flawless. Deliverables are always right on schedule and any changes or adjustments that are required are almost instantly taken care of'
   },
