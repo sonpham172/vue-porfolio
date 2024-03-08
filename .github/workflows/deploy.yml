@@ -8,7 +8,6 @@ on:
 env:
   SERVER: ubuntu@ec2-54-206-115-93.ap-southeast-2.compute.amazonaws.com
   HOST: ec2-54-206-115-93.ap-southeast-2.compute.amazonaws.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMVGFbaJ4/XA07el2hlvh2JkDYHfumV531VSXS8PTaRg
-  DIRECTORY: /home/ubuntu/vue-porfolio
   ENVIRONMENT: DEV
   PREVIEW: https://finn-porfolio.com
   REGISTRY: docker.io
@@ -17,7 +16,26 @@ env:
   SERVICE_NAME: partner-rocket-gaming
 
 jobs:
+  check:
+    name: tsc + Test
+    runs-on: ubuntu-latest
+    outputs:
+      IS_PR: ${{github.event_name == 'push' && github.event.head_commit.committer.name == 'GitHub'}}
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: npm install
+      - run: npm run type-check
+      
   build:
+    needs: [ check ]
+    if: ${{needs.check.outputs.IS_PR == 'true'}}
     runs-on: ubuntu-latest
     permissions:
       contents: read
