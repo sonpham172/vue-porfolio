@@ -6,8 +6,8 @@ on:
       - main
 
 env:
-  SERVER: ubuntu@54.206.115.93
-  HOST: 54.206.115.93 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0TXNCTZUNVHN4HdQjbxnyOUdP+FCgbfu7RbUugzsCW ubuntu@ip-172-31-32-107
+  SERVER: ubuntu@ec2-54-206-115-93.ap-southeast-2.compute.amazonaws.com
+  HOST: ec2-54-206-115-93.ap-southeast-2.compute.amazonaws.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMVGFbaJ4/XA07el2hlvh2JkDYHfumV531VSXS8PTaRg
   DIRECTORY: /home/ubuntu/projects/vue-porfolio
   ENVIRONMENT: DEV
   PREVIEW: https://finn-porfolio.com
