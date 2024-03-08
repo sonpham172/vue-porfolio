@@ -1,4 +1,4 @@
-name: Deploy Docker MINI-SIT
+name: Deploy Docker porfolio
 
 on:
   push:
