@@ -1,7 +1,9 @@
 name: Deploy Docker MINI-SIT
 
 on:
-  push: main
+  push:
+    branches:
+      - main
 
 env:
   SERVER: ubuntu@54.206.115.93
