@@ -8,7 +8,7 @@ on:
 env:
   SERVER: ubuntu@ec2-54-206-115-93.ap-southeast-2.compute.amazonaws.com
   HOST: ec2-54-206-115-93.ap-southeast-2.compute.amazonaws.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMVGFbaJ4/XA07el2hlvh2JkDYHfumV531VSXS8PTaRg
-  DIRECTORY: /home/ubuntu/projects/vue-porfolio
+  DIRECTORY: /home/ubuntu/vue-porfolio
   ENVIRONMENT: DEV
   PREVIEW: https://finn-porfolio.com
   REGISTRY: docker.io
@@ -66,5 +66,4 @@ jobs:
 
       - name: Deploy Docker image and restart container
         run: |
-          ssh ${{ env.SERVER }} "docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
-          ssh ${{ env.SERVER }} "cd ${{ env.DIRECTORY }} && docker compose up -d ${{ ENV.SERVICE_NAME }} --force-recreate"
+          ssh ${{ env.SERVER }} "docker stop ${{ env.SERVICE_NAME }} && docker run --rm -p 3000:4173 -d --name ${{ env.SERVICE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
