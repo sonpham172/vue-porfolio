@@ -60,6 +60,6 @@ const LIST_CARD_DATA = [
 ];
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
