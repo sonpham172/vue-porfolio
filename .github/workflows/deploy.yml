@@ -96,10 +96,6 @@ jobs:
     needs: [ build-push ]
     name: Deploy
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
 
     steps:
       - name: Deploy Docker image and restart container
