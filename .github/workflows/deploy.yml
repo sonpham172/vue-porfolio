@@ -92,11 +92,6 @@ jobs:
       - name: Add hosts
         run: echo "${{ env.HOST }}" >> ~/.ssh/known_hosts
 
-  deploy:
-    needs: [ build-push ]
-    name: Deploy
-    runs-on: ubuntu-latest
-
-    steps:
-      run: |
+      - name: Deploy Docker image and restart container
+        run: |
         ssh ${{ env.SERVER }} "docker stop ${{ env.SERVICE_NAME }} && docker run --rm --pull=always -p 3000:4173 -d --name ${{ env.SERVICE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
