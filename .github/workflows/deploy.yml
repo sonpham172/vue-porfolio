@@ -34,7 +34,7 @@ jobs:
       - run: npm run type-check
 
   set-up-docker:
-    need: [ check ]
+    needs: [ check ]
     name: Set up Docker
     runs-on: ubuntu-latest
     permissions:
