@@ -35,7 +35,6 @@ jobs:
       
   build:
     needs: [ check ]
-    if: ${{needs.check.outputs.IS_PR == 'true'}}
     runs-on: ubuntu-latest
     permissions:
       contents: read
