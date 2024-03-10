@@ -83,3 +83,12 @@ jobs:
       - name: Deploy Docker image and restart container
         run: |
           ssh ${{ env.SERVER }} "docker stop ${{ env.SERVICE_NAME }} && docker run --rm --pull=always -p 3000:4173 -d --name ${{ env.SERVICE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
+
+  notify:
+    steps:
+      -name: Notify Telegram
+      uses: appleboy/telegram-action@v0.1.4
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        message: "Deployed ${{ env.PREVIEW }} to ${{ env.SERVER }}"
