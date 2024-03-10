@@ -85,10 +85,14 @@ jobs:
           ssh ${{ env.SERVER }} "docker stop ${{ env.SERVICE_NAME }} && docker run --rm --pull=always -p 3000:4173 -d --name ${{ env.SERVICE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
 
   notify:
+    needs: [build-push]
+    name: Notify Telegram
+    runs-on: ubuntu-latest
     steps:
       - name: Notify Telegram
-      uses: appleboy/telegram-action@v0.1.4
+      uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        message: "Deployed ${{ env.PREVIEW }} to ${{ env.SERVER }}"
+        message: |
+          Deployed ${{ env.PREVIEW }} to ${{ env.SERVER }}
