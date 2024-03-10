@@ -1,5 +1,14 @@
 name: Notification
 
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
 jobs:
   send-telegram-notification:
     name: Send Telegram Notification

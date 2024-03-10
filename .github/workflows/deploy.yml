@@ -22,7 +22,7 @@ jobs:
     outputs:
       IS_PR: ${{github.event_name == 'push' && github.event.head_commit.committer.name == 'GitHub'}}
     steps:
-      - uses: .github/workflows/notify.yml#send-telegram-notification
+      - uses: ./.github/workflows/notify.yml@main
 
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -43,7 +43,7 @@ jobs:
       id-token: write
 
     steps:
-      - uses: .github/workflows/notify.yml#send-telegram-notification
+      - uses: ./.github/workflows/notify.yml@main
 
       - name: Checkout repository
         uses: actions/checkout@v3
