@@ -37,7 +37,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
-            Job ${{ job.status }} ${{ job }}: ${{ job.name }}!
+            Job ${{ job.status }} ${{ toJSON(job) }}: ${{ github.job }}!
             ${{ job.status == 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
 
 
