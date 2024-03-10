@@ -43,7 +43,7 @@ jobs:
 
 
   build-deploy:
-    needs: [check]
+    needs: check
     name: Build and Push Docker image
     runs-on: ubuntu-latest
     permissions:
