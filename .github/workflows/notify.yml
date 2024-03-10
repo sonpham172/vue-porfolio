@@ -1,0 +1,15 @@
+name: Notification
+jobs:
+  send-telegram-notification:
+    name: Send Telegram Notification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram Notification
+        if: always()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            ${{ github.workflow }} job ${{ job.status }}: ${{ job.name }}!
+            ${{ job.status === 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
