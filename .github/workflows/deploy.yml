@@ -38,10 +38,11 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
             Job '${{ github.job }}': ${{ job.status }}!
-            ${{ job.status == 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
+            ${{ job.status == 'success' && 'Already passed check typescript. Can be progress the next job' || 
+            'The job failed. Please check logs for details.' }}
 
 
-  build-push:
+  build-deploy:
     needs: [check]
     name: Build and Push Docker image
     runs-on: ubuntu-latest
@@ -102,4 +103,5 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
             Job '${{ github.job }}': ${{ job.status }}!
-            ${{ job.status == 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
+            ${{ job.status == 'success' && 'All job was passed. Deployment successfull!' || 
+            'The job failed. Please check logs for details.' }}
