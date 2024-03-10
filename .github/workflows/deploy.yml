@@ -16,13 +16,16 @@ env:
   SERVICE_NAME: partner-rocket-gaming
 
 jobs:
+  - import: .github/workflows/notify.yml
+
+jobs:
   check:
     name: tsc + Test
     runs-on: ubuntu-latest
     outputs:
       IS_PR: ${{github.event_name == 'push' && github.event.head_commit.committer.name == 'GitHub'}}
     steps:
-      - template: notify.yml
+      - template: jobs.send-telegram-notification
 
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -43,7 +46,7 @@ jobs:
       id-token: write
 
     steps:
-      - template: notify.yml
+      - template: jobs.send-telegram-notification
 
       - name: Checkout repository
         uses: actions/checkout@v3

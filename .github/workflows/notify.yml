@@ -1,4 +1,5 @@
 name: Notification
+
 jobs:
   send-telegram-notification:
     name: Send Telegram Notification
