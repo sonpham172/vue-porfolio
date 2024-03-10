@@ -16,12 +16,29 @@ env:
   SERVICE_NAME: partner-rocket-gaming
 
 jobs:
+  send-telegram-notification:
+    name: Send Telegram Notification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram Notification
+        if: always()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            ${{ github.workflow }} job ${{ job.status }}: ${{ job.name }}!
+            ${{ job.status === 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
+
+jobs:
   check:
     name: tsc + Test
     runs-on: ubuntu-latest
     outputs:
       IS_PR: ${{github.event_name == 'push' && github.event.head_commit.committer.name == 'GitHub'}}
     steps:
+      - template: send-telegram-notification
+
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -41,6 +58,8 @@ jobs:
       id-token: write
 
     steps:
+      - template: send-telegram-notification
+      
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -83,15 +102,3 @@ jobs:
       - name: Deploy Docker image and restart container
         run: |
           ssh ${{ env.SERVER }} "docker stop ${{ env.SERVICE_NAME }} && docker run --rm --pull=always -p 3000:4173 -d --name ${{ env.SERVICE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
-
-  send-telegram-notification:
-    name: Send Telegram Notification
-    runs-on: ubuntu-latest
-    steps:
-      - name: Send Telegram Notification
-        if: always()
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: ${{ github.workflow }} job ${{ github.job }} has been ${{ job.status }}!
