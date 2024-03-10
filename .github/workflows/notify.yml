@@ -2,18 +2,15 @@ name: Notification
 
 on:
   workflow_call:
-    inputs:
-      config-path:
-        required: true
-        type: string
-    secrets:
-      token:
-        required: true
+
 jobs:
   send-telegram-notification:
     name: Send Telegram Notification
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Send Telegram Notification
         if: always()
         uses: appleboy/telegram-action@master

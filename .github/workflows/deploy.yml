@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 env:
   SERVER: ubuntu@ec2-52-65-66-136.ap-southeast-2.compute.amazonaws.com
