@@ -95,4 +95,3 @@ jobs:
           to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: ${{ github.workflow }} job ${{ github.job }} has been ${{ job.status }}!
-          format: html
