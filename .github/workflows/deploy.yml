@@ -31,6 +31,7 @@ jobs:
       - run: npm run type-check
 
       - name: Notify Telegram
+        if: always()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -94,6 +95,7 @@ jobs:
           ssh ${{ env.SERVER }} "docker stop ${{ env.SERVICE_NAME }} && docker run --rm --pull=always -p 3000:4173 -d --name ${{ env.SERVICE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
 
       - name: Notify Telegram
+        if: always()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
