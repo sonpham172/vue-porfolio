@@ -37,7 +37,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
             Job ${{ job.status }}: ${{ job.name }}!
-            ${{ job.status === 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
+            ${{ job.status == 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
 
 
   build-push:
@@ -100,4 +100,4 @@ jobs:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
             Job ${{ job.status }}: ${{ job.name }}!
-            ${{ job.status === 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
+            ${{ job.status == 'success' && 'The job was successfull' || 'The job failed. Please check logs for details.' }}
