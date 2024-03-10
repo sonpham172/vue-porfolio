@@ -19,7 +19,7 @@
     <FeedbackLeader />
     <LineDown />
 
-    <MyJournal />
+    <!-- <MyJournal /> -->
   </div>
 </template>
 
