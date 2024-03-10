@@ -22,8 +22,6 @@ jobs:
     outputs:
       IS_PR: ${{github.event_name == 'push' && github.event.head_commit.committer.name == 'GitHub'}}
     steps:
-      - uses: ./.github/workflows/notify.yml@main
-
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -32,6 +30,8 @@ jobs:
       - run: npm install
       - run: npm run type-check
 
+      - name: Run notification
+      - uses: ./.github/workflows/notify.yml@main
 
   build-push:
     needs: [check]
@@ -43,8 +43,6 @@ jobs:
       id-token: write
 
     steps:
-      - uses: ./.github/workflows/notify.yml@main
-
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -87,3 +85,6 @@ jobs:
       - name: Deploy Docker image and restart container
         run: |
           ssh ${{ env.SERVER }} "docker stop ${{ env.SERVICE_NAME }} && docker run --rm --pull=always -p 3000:4173 -d --name ${{ env.SERVICE_NAME }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
+
+      - name: Run notification
+      - uses: ./.github/workflows/notify.yml@main
