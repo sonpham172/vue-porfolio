@@ -86,7 +86,7 @@ jobs:
 
   notify:
     steps:
-      -name: Notify Telegram
+      - name: Notify Telegram
       uses: appleboy/telegram-action@v0.1.4
       with:
         to: ${{ secrets.TELEGRAM_CHAT_ID }}
