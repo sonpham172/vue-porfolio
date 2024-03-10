@@ -20,7 +20,7 @@
     <LineDown />
 
     <MyJournal />
-    <div>test abc</div>
+    <div>test abc23232</div>
   </div>
 </template>
 
