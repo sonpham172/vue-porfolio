@@ -88,11 +88,12 @@ jobs:
     needs: [build-push]
     name: Notify Telegram
     runs-on: ubuntu-latest
+
     steps:
       - name: Notify Telegram
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_CHAT_ID }}
-        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        message: |
-          Deployed ${{ env.PREVIEW }} to ${{ env.SERVER }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            Deployed ${{ env.PREVIEW }} to ${{ env.SERVER }}
