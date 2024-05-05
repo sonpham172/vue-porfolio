@@ -35,12 +35,11 @@
       @media (min-width: 768px) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 8em;
       }
       img {
-        width: 100px;
+        width: 100%;
         height: 60px;
-        object-fit: cover;
+        object-fit: scale-down;
       }
     }
   }

@@ -1,9 +1,9 @@
 <template>
   <div class="flex gap-2 md:gap-3">
-    <NavigateItem value="Work" path="/"/>
-    <NavigateItem value="About" path="/about"/>
-    <NavigateItem value="Journal" path="/journal"/>
-    <NavigateItem value="Contact" path="/contact"/>
+    <NavigateItem value="Home" path="/"/>
+    <NavigateItem value="About Me" path="/about"/>
+    <NavigateItem value="Journal from 2019" path="/journal"/>
+    <NavigateItem value="My Project" path="/contact"/>
   </div>
 </template>
 

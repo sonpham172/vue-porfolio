@@ -20,17 +20,17 @@ const router = createRouter({
         },
         {
           path: '/about',
-          name: 'About',
+          name: 'About Me',
           component: AboutView
         },
         {
           path: '/journal',
-          name: 'Journal',
+          name: 'Journal from 2019',
           component: JournalView
         },
         {
           path: '/contact',
-          name: 'Contact',
+          name: 'My Project',
           component: ContactView
         }
       ]

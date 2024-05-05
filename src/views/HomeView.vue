@@ -1,11 +1,14 @@
 
 <template>
   <div class="home-container">
-    <div class="container">
-      <BasicText class-name="mr-[30%]" value="We make brands humanly relatable" is-fantasy-text/>
-      <BasicText 
-      class-name="text-primary-tertiary mr-[30%] mt-4"
-      value="We design and build brands and products for startups and scaleups in fintech, health tech, edtech, AI, VR and blockchain." />
+    <div class="">
+      <MyProject />
+      <div class="container">
+        <BasicText class-name="mr-[30%]" value="We make brands humanly relatable" is-fantasy-text/>
+        <BasicText 
+        class-name="text-primary-tertiary mr-[30%] mt-4"
+        value="We design and build brands and products for startups and scaleups in fintech, health tech, edtech, AI, VR and blockchain." />
+      </div>
     </div>
 
     <HotProjectSection />
@@ -20,7 +23,6 @@
     <LineDown />
 
     <MyJournal />
-    <div>test abc23232</div>
   </div>
 </template>
 
@@ -32,18 +34,17 @@ import LineDown from '@/components/shared/LineDown.vue';
 import FeedbackLeader from '@/components/feature/section/FeedbackLeader.vue';
 import TrustedCompany from '@/components/feature/section/TrustedCompany.vue';
 import MyJournal from '@/components/feature/section/MyJournal.vue';
-
+import MyProject from '@/components/feature/section/MyProject.vue';
 </script>
 
 <style>
 .home-container {
   display: flex;
-  margin: 40px 0;
   flex-direction: column;
   gap: 32px;
 
   @media (min-width: 768px) {
-    margin: 160px 0;
+    margin: 60px 0;
   }
 }
 </style>

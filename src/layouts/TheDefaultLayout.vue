@@ -13,6 +13,8 @@ import SiteNavigation from '../components/feature/navigation/SiteNavigation.vue'
 </script>
  
 <style>
-
+.default-layout {
+   overflow: hidden;
+}
 </style>
  
