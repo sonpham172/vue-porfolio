@@ -2,6 +2,7 @@
 <template>
   <div class="container grid grid-cols-2 lg:grid-cols-4 gap-4 items-center" data-aos="fade-up" data-aos-duration="1000">
     <canvas-arrow
+      key="a"
       class="flex justify-center row-start-1"
       direction="right" 
       :disabled="[selectedItem?.id === LIST_FEEDBACK_DATA[0].id]" 
@@ -26,7 +27,7 @@
         </div>
       </li>
     </ul>
-    <canvas-arrow direction="left" class="flex justify-center"
+    <canvas-arrow key="b" direction="left" class="flex justify-center"
         :disabled="[selectedItem?.id === LIST_FEEDBACK_DATA[LIST_FEEDBACK_DATA.length - 1].id]" />
   </div>
 </template>

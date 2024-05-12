@@ -94,7 +94,8 @@
       bottom: auto;
       left: 50%;
       transform: translateX(-50%);
-      width: 500px;
+      width: max-content;
+      padding: 5px;
       // display: none;
 
 

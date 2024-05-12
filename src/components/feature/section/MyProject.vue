@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import BasicText from '@/components/shared/text/BasicText.vue';
-import { onMounted, ref } from 'vue';
+import BasicText from '@/components/shared/text/BasicText.vue'; 
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
 
+const modules = [Navigation];
 const projects = [
   {
     id: '1',
@@ -41,26 +45,6 @@ const projects = [
   }
 ];
 
-const selectedItem = ref<any>(projects[0]);
-
-function clickArrowButton(direction: string) {
-  const idxSelectItem = projects.findIndex(item => selectedItem.value && item.id === selectedItem.value.id);
-  if (idxSelectItem === -1) {
-    selectedItem.value = null;
-  }
-  const idxNextSelectedItem = direction === 'left' ? idxSelectItem + 1 : idxSelectItem - 1;
-  selectedItem.value = projects[idxNextSelectedItem];
-}
-
-onMounted(() => {
-  window.addEventListener('message', (event) => {
-    if (event.data) {
-      if (event.data.source === 'arrow') {
-        clickArrowButton(event.data.data);
-      }
-    }
-  })
-});
 </script>
 
 <template>
@@ -76,51 +60,36 @@ onMounted(() => {
       <div class="meteor" style="left: 1124.67px; top: 40px; animation-delay: 5.6315s;"></div>
     </div>
 
-
-    <div class="container skill-item" 
-    :class="[(selectedItem && selectedItem.id === item.id) && 'active']" v-for="item in projects">
-      <div class="grid grid-cols-2 overflow-hidden gap-4 justify-center text-center">
-        <img v-for="image in item.images" class="image" :src="image" alt="feedback-logo" />
-        <div class="text">{{item.name}}</div>
-      </div>
-      
-      <div class="flex flex-col gap-4 md:gap-8">
-        <div class="flex flex-col gap-2">
-          <BasicText value="Introduce" is-fantasy-text class-name="text-[aliceblue]" />
-          <span class="text-[burlywood]">{{item.introduce}}</span>
+    <swiper class="swiper" :modules="modules" :pagination="{ clickable: true }" navigation>
+      <swiper-slide class="slide skill-item" v-for="item in projects">
+        <div class="grid grid-cols-2 overflow-hidden gap-4 justify-center text-center">
+          <img v-for="image in item.images" class="image" :src="image" alt="feedback-logo" />
+          <div class="text">{{item.name}}</div>
         </div>
+        <div class="flex flex-col gap-4 md:gap-8">
+          <div class="flex flex-col gap-2">
+            <BasicText value="Introduce" is-fantasy-text class-name="text-[aliceblue]" />
+            <span class="text-[burlywood]">{{item.introduce}}</span>
+          </div>
 
-        <div class="flex flex-col gap-2">
-          <BasicText value="My Skill" is-fantasy-text class-name="text-[aliceblue]" />
-          <div class="flex gap-3 flex-wrap">
-            <div class="tag" v-for="skill in item.skills">
-              <span>{{skill.name}}</span>
-              <img class="rounded-full object-cover w-4 h-4" :src="`/images/skills/${skill.code}.png`" alt="skill" />
+          <div class="flex flex-col gap-2">
+            <BasicText value="My Skill" is-fantasy-text class-name="text-[aliceblue]" />
+            <div class="flex gap-3 flex-wrap">
+              <div class="tag" v-for="skill in item.skills">
+                <span>{{skill.name}}</span>
+                <img class="rounded-full object-cover w-4 h-4" :src="`/images/skills/${skill.code}.png`" alt="skill" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="flex flex-col gap-2">
-          <BasicText value="Domain" is-fantasy-text class-name="text-[aliceblue]" />
-          <a :href="item.link" target="_blank" class="text-[burlywood] underline">{{item.link}}</a>
+          <div class="flex flex-col gap-2">
+            <BasicText value="Domain" is-fantasy-text class-name="text-[aliceblue]" />
+            <a :href="item.link" target="_blank" class="text-[burlywood] underline">{{item.link}}</a>
+          </div>
         </div>
-      </div>
-    </div>
+      </swiper-slide>
+    </swiper>
 
-    <div class="col-span-2">
-      <div class="flex justify-center gap-4">
-        <canvas-arrow
-          class="flex justify-center row-start-1"
-          direction="right" 
-          :disabled="[selectedItem?.id === projects[0].id]" 
-        />
-        <canvas-arrow
-          class="flex justify-center row-start-1"
-          direction="left" 
-          :disabled="[selectedItem?.id === projects[projects.length - 1].id]"
-        />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -134,11 +103,8 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 8px;
-  // opacity: 0;
-  display: none;
   transition: all .3s;
-  height: 0;
-  // pointer-events: none;
+  padding: 2rem;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -149,7 +115,6 @@ onMounted(() => {
     display: grid;
     height: 100%;
     padding: 32px;
-    margin-bottom: 32px;
   }
 }
 .star-container {
