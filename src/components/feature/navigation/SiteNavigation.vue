@@ -80,7 +80,7 @@
     background: rgba(200,200,200,.5);
     border-radius: 24px;
     justify-content: center;
-    z-index: 1;
+    z-index: 2;
     left: 10%;
     right: 0;
     transform: translateX(-5%);
