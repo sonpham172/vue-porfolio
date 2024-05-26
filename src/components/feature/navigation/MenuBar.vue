@@ -3,7 +3,6 @@
     <NavigateItem value="Home" path="/"/>
     <NavigateItem value="About Me" path="/about"/>
     <NavigateItem value="Journal from 2019" path="/journal"/>
-    <NavigateItem value="My Project" path="/contact"/>
   </div>
 </template>
 

@@ -1,6 +1,20 @@
 <template>
   <div class="button-wrapper">
-    <button class='buttonFi'>
+    <router-link
+      v-if="isLink"
+      :to="{path}"
+      v-slot="{ href, route, navigate, isActive, isExactActive }"
+      custom
+    >
+      <a :href="href" @click="navigate"
+        :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active', 
+        'buttonFi']"
+      >
+        {{ value }}
+      </a>
+    </router-link>
+
+    <button v-else class='buttonFi'>
       {{ value }}
     </button>
   </div>
@@ -10,6 +24,8 @@
   defineProps<{
     value: string;
     className?: string;
+    isLink?: boolean,
+    path?: string;
   }>()
 </script>
 
