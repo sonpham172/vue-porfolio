@@ -218,8 +218,9 @@ $l-max: 90;
   // animation: rotateYAnim 1.5s forwards, orbit 1s infinite 1s;
   animation: orbit 1s infinite;
   border-radius: 12px;
-  aspect-ratio: 1/1.68;
+  width: 100%;
   height: 100%;
+  max-height: 500px;
 }
 
 /* Add more animations for each image */
