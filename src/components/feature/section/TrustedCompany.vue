@@ -2,14 +2,13 @@
 
 <template>
   <div class="container trusted-companies">
-    <div class="title">COMPANIES TRUSTED ME AND GIVE ME CHANGE TO CO-ORDINATE</div>
+    <div class="title">WORKED AT COMPANY</div>
     <div class="companies">
-      <img src="/images/companies/waohire.webp" alt="angelpad-logo" />
+      <img src="/images/companies/1bit.webp" alt="angelpad-logo" />
       <img src="/images/companies/geocomply.webp" alt="accelerator-logo" />
       <img src="/images/companies/aitech.webp" alt="techstars-logo" />
       <img src="/images/companies/fpt.webp" alt="ycombinator-logo" />
       <img src="/images/companies/gcs.webp" alt="500startups-logo" />
-      <img src="/images/companies/kamala.webp" alt="seedcamp-logo" />
     </div>
   </div>
 </template>

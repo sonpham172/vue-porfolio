@@ -1,52 +1,36 @@
 export const PROJECTS = [
   {
-    id: 'ibit',
-    name: 'IBIT.ASIA',
+    id: 'tg',
+    name: 'TG.GAME',
     images: [
       '/images/projects/mines.webp',
       '/images/projects/crash.webp'
     ],
-    introduce: 'Ibit.asia is a development page of 1bit company. Its includes all of the games that developed by company.',
-    skills: [
-      {code: 'reactjs', name: 'ReactJS'},
-      {code: 'nextjs', name: 'NextJS'},
-      {code: 'tailwind', name: "Tailwind CSS"},
-      {code: 'sass', name: 'SCSS'},
-      {code: 'docker', name: 'Docker'},
-      {code: 'jest', name: 'Jest'}
-    ],
-    link: 'https://ibit.asia/'
-  },
-  {
-    id: 'tg',
-    name: 'TG.BET',
-    images: [
-      '/images/projects/card.webp',
-      '/images/projects/roulette.webp'
-    ],
-    introduce: 'TG.Bet is more than just a casino, it is a ecosystem that gives back to its players through constant rewards by leveraging $TGB.',
+    introduce: 'TG.Game is an application to play game on telegram. TG.Game gives users access to all of the top online games, sport books and more. Users can also buy $TGB token (a crypto token developed by TG.Game team) and can use this token legally to play games more on TG.Game.',
     skills: [
       {code: 'nextjs', name: 'NextJS'},
       {code: 'sass', name: 'SCSS'},
       {code: 'docker', name: 'Docker'},
-      {code: 'jest', name: 'Jest'}
+      {code: 'jest', name: 'Jest'},
+      {code: 'svelte', name: 'Svelte'},
     ],
     link: 'https://tg-bet.com/'
   },
   {
-    id: 'butterfly',
-    name: 'Butterfly',
+    id: 'saudi',
+    name: 'China Economic Project',
     images: [
-      '/images/projects/butterfly.webp',
-      '/images/projects/18+.webp'
+      '/images/projects/estate1.webp',
+      '/images/projects/estate2.webp'
     ],
-    introduce: 'Butterfly is a website 18+ was borned by China. Its look like a social platform for adult and only play on Telegram',
+    introduce: `This is a mobile application about real estate. In China, they have a lot of real estate that they would like to sell to domestic and foreign enterprise. This project will be a place to list out some real estate projects; client can see detail information of the project or even purchase for that project.
+      Currently, The project has customers from Arabia and will expand to many other countries.
+      This project use Flutter as a multi-platform applications. So our output can be available on web, android and ios devices.
+      `,
     skills: [
-      {code: 'svelte', name: 'Svelte'},
-      {code: 'sass', name: 'SCSS'},
-      {code: 'jest', name: 'Jest'}
+      {code: 'flutter', name: 'Flutter'},
     ],
-    link: 'https://t.me/Butterfly_SIT_Bot'
+    link: 'https://web-saudi-prod.1bit.vip/'
   },
   {
     id: 'fingerprint',
@@ -66,20 +50,34 @@ export const PROJECTS = [
     link: 'https://fingerprinting.geocomply.com/'
   },
   {
-    id: 'faas',
-    name: 'FAAS dashboard',
+    id: 'keystroke',
+    name: 'Keystroke',
     images: [
       '/images/projects/fingerprint.webp',
       '/images/projects/idcomply.webp'
     ],
-    introduce: 'UBO is a micro Frontend product platform that combines all products of company at 1 website.',
+    introduce: 'Keystroke recognition is a behavioral biometric which utilizes the unique manner in which a person types to verify the identity of an individual. Typing patterns are predominantly extracted from computer keyboards, but the information can potentially be gathered from any input device having traditional keys. ',
     skills: [
       {code: 'html', name: 'HTML'},
-      {code: 'reactjs', name: 'Reactjs'},
-      {code: 'angular', name: 'Angular'},
       {code: 'javascript', name: 'Javascript'},
-      {code: 'sass', name: 'SCSS'},
-      {code: 'jest', name: 'Jest'}
+      {code: 'python', name: 'Python'},
+      {code: 'mongo', name: 'MongoDB'}
+    ],
+    link: ''
+  },
+  {
+    id: 'ubo',
+    name: 'FAAS dashboard - UBO',
+    images: [
+      '/images/projects/fingerprint.webp',
+      '/images/projects/st-dashboard.webp'
+    ],
+    introduce: 'UBO is a product platform that combines all products of company at 1 website',
+    skills: [
+      {code: 'reactjs', name: 'ReactJS'},
+      {code: 'jest', name: 'Jest'},
+      {code: 'redux', name: 'Redux saga'},
+      {code: 'mongo', name: 'MongoDB'}
     ],
     link: ''
   },

@@ -24,7 +24,7 @@ const modules = [Pagination, Autoplay];
       <div class="meteor" style="left: 1124.67px; top: 40px; animation-delay: 5.6315s;"></div>
     </div>
 
-    <swiper autoplay class="swiper" :modules="modules" :pagination="{ clickable: true }" loop>
+    <swiper class="swiper" :modules="modules" :pagination="{ clickable: true }" loop>
       <swiper-slide class="slide skill-item" v-for="item in PROJECTS">
         <div class="grid grid-cols-2 overflow-hidden gap-4 justify-center text-center">
           <img v-for="image in item.images" class="image" :src="image" alt="feedback-logo" />

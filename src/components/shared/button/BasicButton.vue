@@ -6,7 +6,7 @@
       v-slot="{ href, route, navigate, isActive, isExactActive }"
       custom
     >
-      <a :href="href" @click="navigate"
+      <a :href="href" @click="navigate" target="_blank"
         :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active', 
         'buttonFi']"
       >
