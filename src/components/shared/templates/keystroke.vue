@@ -28,6 +28,7 @@ const result = ref('');
   A4
 
   C1
+  C2
   <p class="c39"><span class="c3">Achievements: </span></p>
   <p class="c4"><span class="c5">● </span><span class="c2">JavaScript SDK</span></p>
 <p class="c4"><span class="c5">● </span><span class="c2">Gulp</span></p>
