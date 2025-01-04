@@ -17,6 +17,7 @@ const result = ref('');
 <p class="c4"><span class="c5">● </span><span class="c2">Work with the data science team for training the model</span></p>
 <p class="c4"><span class="c5">● </span><span class="c2">Build a demo page with keystroke bot detection</span></p>
 
+  A1
   <p class="c9"><span class="c3">Technologies used in project: </span></p>
   <p class="c7"><span class="c5">● </span><span class="c2">HTML, CSS, JavaScript.  </span></p>
   <p class="c8"><span class="c5">● </span><span class="c2">Python. </span></p>
