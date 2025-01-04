@@ -21,6 +21,8 @@ const result = ref('');
   A2
   B1
   B2
+  A3
+  A4
   <p class="c9"><span class="c3">Technologies used in project: </span></p>
   <p class="c7"><span class="c5">● </span><span class="c2">HTML, CSS, JavaScript.  </span></p>
   <p class="c8"><span class="c5">● </span><span class="c2">Python. </span></p>
