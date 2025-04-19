@@ -35,7 +35,7 @@
             />
             <BasicText 
               class-name="text-lg mb-6"
-              value="A passionate developer and designer with a keen eye for detail and a love for creating beautiful, functional digital experiences."
+              value="Experienced Front End Developer with 6+ years of building fast, responsive, and user-focused web and mobile applications. Specialized in modern JavaScript frameworks like React, Vue, and Svelte. Strong background in SEO—skilled at optimizing websites for search engines through clean code, semantic HTML, performance tuning, and structured data. Proven ability to boost organic traffic and search rankings. Passionate about delivering accessible, high-converting UIs. Dedicated to building high-quality digital products that not only look great but also rank well."
             />
         
           </div>
