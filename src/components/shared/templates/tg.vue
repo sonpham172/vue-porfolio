@@ -1,53 +1,83 @@
 <script lang="ts" setup>
-import {onMounted, ref} from "vue";
+import { ref } from "vue";
 
 const result = ref('');
-
-
 </script>
+
 <template>
+  <div class="project-detail">
+    <p><strong>➤ July 2023 – Oct 2024</strong></p>
+    <h2>TG.Game (Online Gaming Platform)</h2>
 
-<div class="c96 doc-content">
-  <p class="c40"><span class="c11">➤ </span><span class="c6">July 2023 - Present </span></p>
-  <p class="c45 c82"><span class="c32">TG.Game (Game online)</span></p>
-  <p class="c81"><span class="c14">
-    TG.Game is an application to play game on telegram. TG.Game gives users access to all of the top online games, sport books and more. Users can also buy $TGB token (a crypto token developed by TG.Game team) and can use this token legally to play games more on TG.Game.
-  </span></p>
-  <p class="c81"><span class="c14">
-     Telegram bot play game: @TGBetOfficialBot
+    <p>
+      Led frontend development for TG.Game, a Telegram-based online gaming platform
+      featuring cryptocurrency integration. TG.Game allows users to play top online
+      games, access sportsbooks, and utilize the $TGB token—a native crypto token
+      used within the platform for gameplay and transactions.
+    </p>
 
-  </span></p>
-  <p class="c45 c98"><span class="c3">Responsibilities: </span></p>
-  <p class="c7"><span class="c5">● </span><span class="c2">Support team setup telegram bot. </span></p>
-  <p class="c8"><span class="c5">● </span><span class="c2">Code game by canvas. </span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">Integrate with multiple game provider  </span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">Support integrate with crypto wallet</span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">Handle SEO for website</span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">Review code member</span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">Deep working with canvas</span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">Support team brainstorm feature to enhance product</span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">Support team build docker image and setup Github action for trigger build</span></p>
-  <p class="c9"><span class="c3">Technologies used in project: </span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">NextJS, ReactJS, Svelte, SvelteKit</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Canvas</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Embedded component and Shadow DOM</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Telegram bot</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Metaskmask</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Docker</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Vite</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">HTML, CSS3, JavaScript</span></p>
+    <p>
+      Telegram bot: <strong>@TGBetOfficialBot</strong>
+    </p>
 
-  <p class="c39"><span class="c3">Achievements: </span></p>
-  <p class="c4"><span class="c5">● </span><span class="c2">The way to build mini games on Telegram bot and ecosystem on Telegram</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Deep working with new frontend framework Svelte and SvelteKit</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Get more familiar with Canvas</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Integrate project with Crypto Wallet</span></p>
-<p class="c4"><span class="c5">● </span><span class="c2">Deployment pipeline</span></p>
+    <h3>Technical Implementation:</h3>
+    <ul>
+      <li>Built interactive games using HTML5 Canvas and WebGL</li>
+      <li>Integrated Telegram Bot API with webhook architecture to manage high interaction volumes daily</li>
+      <li>Implemented Shadow DOM for widget isolation ensuring consistent UI in embedded contexts</li>
+      <li>Optimized Svelte rendering performance across components</li>
+      <li>Configured Vite build system with code splitting and tree shaking to reduce load times</li>
+    </ul>
 
- 
-</div>
+    <h3>Responsibilities:</h3>
+    <ul>
+      <li>Developed cross-browser compatibility for Canvas-based games</li>
+      <li>Handled and enhanced SEO strategy for the TG.Game website</li>
+      <li>
+        <a href="https://1bitsoftware.atlassian.net/wiki/spaces/~712020fef501b17e0c4f90bcace39da8e66790/pages/329187338/Search+Engine+Optimization+SEO" target="_blank">
+          View detailed SEO strategy
+        </a>
+      </li>
+      <li>Collaborated with team to improve game mechanics</li>
+      <li>Integrated games from multiple third-party providers</li>
+      <li>Connected Web3 wallet functionality using Web3.js and MetaMask</li>
+      <li>Assisted in Docker image creation and GitHub Actions for build automation</li>
+      <li>Reviewed and maintained clean, scalable codebase</li>
+    </ul>
+
+    <h3>Technologies:</h3>
+    <ul>
+      <li>NextJS, ReactJS, Svelte, SvelteKit</li>
+      <li>HTML5 Canvas, WebGL</li>
+      <li>Telegram Bot API</li>
+      <li>Web3.js, MetaMask</li>
+      <li>Docker, Vite, WebSockets</li>
+      <li>TypeScript, HTML, CSS3, JavaScript</li>
+    </ul>
+
+    <h3>Achievements:</h3>
+    <ul>
+      <li>Successfully built and launched multiple mini-games within the Telegram ecosystem</li>
+      <li>Deepened expertise with Svelte and SvelteKit</li>
+      <li>Gained advanced experience working with Canvas and game rendering performance</li>
+      <li>Successfully integrated crypto wallet login and transactions</li>
+      <li>Contributed to deployment pipeline and automation processes</li>
+    </ul>
+  </div>
 </template>
 
-<style lang="css" scoped>
-  @import "./project.css";
+<style scoped>
+.project-detail {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  padding: 1rem;
+}
+.project-detail ul {
+  margin: 0 0 1rem 1.5rem;
+}
+.project-detail a {
+  color: #007acc;
+  text-decoration: underline;
+}
 </style>

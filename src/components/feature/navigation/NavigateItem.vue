@@ -1,11 +1,11 @@
 <template>
   <router-link
-    :to="{path}"
+    :to="path"
     v-slot="{ href, route, navigate, isActive, isExactActive }"
     custom
   >
     <a :href="href" @click="navigate"
-      :class="[isActive && 'router-link-active', isExactActive && 'router-link-exact-active', 
+      :class="[isExactActive ? 'router-link-exact-active' : '', 
       'cursor-pointer rounded-3xl py-2 px-5 hover:bg-primary-border text-primary-text font-[300] flex items-center text-center whitespace-nowrap']"
     >
       {{ value }}
@@ -21,12 +21,12 @@
 </script>
 
 <style lang="scss" scoped>
-  .router-link-active {
-    background: transparent;
+  .router-link-exact-active {
+    background: var(--primary-border);
   }
 
   @media (min-width: 768px) {
-    .router-link-active {
+    .router-link-exact-active {
       background: var(--primary-border);
     }
   }
