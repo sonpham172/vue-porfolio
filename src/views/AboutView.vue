@@ -9,7 +9,7 @@
         />
         <BasicText 
           class-name="text-xl md:text-2xl text-primary-tertiary mb-8"
-          value="Crafting digital experiences with passion and precision"
+          value="Most real failures stem from limitations people place in their own minds."
         />
       </div>
     </div>

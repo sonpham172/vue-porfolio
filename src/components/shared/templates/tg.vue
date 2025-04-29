@@ -7,13 +7,10 @@ const result = ref('');
 <template>
   <div class="project-detail">
     <p><strong>➤ July 2023 – Oct 2024</strong></p>
-    <h2>TG.Game (Online Gaming Platform)</h2>
+    <h2>TG.Game (Interactive Web-based Entertainment Platform)</h2>
 
     <p>
-      Led frontend development for TG.Game, a Telegram-based online gaming platform
-      featuring cryptocurrency integration. TG.Game allows users to play top online
-      games, access sportsbooks, and utilize the $TGB token—a native crypto token
-      used within the platform for gameplay and transactions.
+      Led frontend development for a Telegram-integrated platform offering real-time, interactive mini-app experiences with blockchain support.
     </p>
 
     <p>

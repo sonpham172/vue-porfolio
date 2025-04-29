@@ -6,7 +6,7 @@ export const LIST_FEEDBACK_DATA: FeedbackLeaderType[] = [
     image: 'tim-bolot',
     path: 'umnai',
     name: 'Nguyen Huynh Tri Nhan',
-    rank: 'Team leader - 0916969173',
+    rank: 'Team leader 1Bit Software - 0916969173',
     comment: "Their attention to detail and consistency in UI/UX elevated the quality of the entire product experience."
   },
   {

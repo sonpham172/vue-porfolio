@@ -6,7 +6,7 @@ export const PROJECTS = [
       '/images/projects/mines.webp',
       '/images/projects/crash.webp'
     ],
-    introduce: 'TG.Game is an application to play game on telegram. TG.Game gives users access to all of the top online games, sport books and more. Users can also buy $TGB token (a crypto token developed by TG.Game team) and can use this token legally to play games more on TG.Game.',
+    introduce: 'Led frontend development for a Telegram-integrated platform offering real-time, interactive mini-app experiences with blockchain support.',
     skills: [
       {code: 'nextjs', name: 'NextJS'},
       {code: 'sass', name: 'SCSS'},

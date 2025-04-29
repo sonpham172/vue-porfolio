@@ -3,17 +3,10 @@
   <div class="home-container">
     <div class="">
       <MyProject />
-      <div class="container">
-        <BasicText class-name="mr-[30%]" value="We make brands humanly relatable" is-fantasy-text/>
-        <BasicText 
-        class-name="text-primary-tertiary mr-[30%] mt-4"
-        value="We design and build brands and products for startups and scaleups in fintech, health tech, edtech, AI, VR and blockchain." />
-      </div>
     </div>
 
-    <HotProjectSection />
+    <!-- <HotProjectSection /> -->
 
-    <BasicButton value="All Project" />
     <LineDown />
 
     <TrustedCompany />

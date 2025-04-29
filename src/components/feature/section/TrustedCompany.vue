@@ -4,10 +4,18 @@
   <div class="container trusted-companies">
     <div class="title">WORKED AT COMPANY</div>
     <div class="companies">
-      <img src="/images/companies/1bit.webp" alt="angelpad-logo" />
-      <img src="/images/companies/geocomply.webp" alt="accelerator-logo" />
-      <img src="/images/companies/fpt.webp" alt="ycombinator-logo" />
-      <img src="/images/companies/gcs.webp" alt="500startups-logo" />
+      <img
+      data-aos="fade-left" 
+      data-aos-duration="2000"
+      src="/images/companies/1bit.webp" alt="angelpad-logo" />
+      <img 
+      data-aos="fade-top" 
+      data-aos-duration="2000"
+      src="/images/companies/geocomply.webp" alt="accelerator-logo" />
+      <img
+      data-aos="fade-right" 
+      data-aos-duration="2000"
+      src="/images/companies/fpt.webp" alt="ycombinator-logo" />
     </div>
   </div>
 </template>
@@ -26,7 +34,7 @@
     & .companies {
       display: flex;
       flex-wrap: nowrap;
-      flex-direction: row;
+      flex-direction: column;
       overflow-x: scroll;
       gap: 2em;
 
